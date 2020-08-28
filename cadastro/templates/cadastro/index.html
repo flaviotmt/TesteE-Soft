@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    
+    <form role="form" action="submit" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <input type="number" name="pessoa_id" value="{{ pessoa.id }}" hidden>
+        
+        <label for="nome">Nome:</label><br>
+        <input type="text" name="nome" value="{{ pessoa.nome }}" required> <br>
+
+        <label for="sobrenome">Sobrenome:</label><br>
+        <input type="text"  name="sobrenome" value="{{ pessoa.sobrenome }}" required><br>
+
+        <label for="idade">Idade:</label><br>
+        <input type="number" name="idade" value="{{ pessoa.idade }}" required><br>
+
+        <label for="dnascimento">Data de nascimento:</label><br>
+        <input type="date" name="dnascimento" value={{ pessoa.nascimento|date:'Y-m-d' }} required><br>
+        
+        
+        <label for="email">E-mail:</label><br>
+        <input type="email" name="email" value="{{ pessoa.email }}" required><br>
+
+        <label for="apelido">Apelido:</label><br>
+        <input type="text" name="apelido" value="{{ pessoa.apelido }}"><br>
+
+        <label for="obs">Observação:</label><br>
+        <textarea name="obs" >{{ pessoa.obs }}</textarea><br>
+
+        <button type="submit">
+            {{ acao }}           
+        </button>
+    </form>
+
+    
+</body>
+</html>

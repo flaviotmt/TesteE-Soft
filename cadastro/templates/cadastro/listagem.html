@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem</title>
+</head>
+<body>
+    <form action='/cadastro'>
+        <button type="submit">Cadastrar</button>
+     </form>
+    
+    <table> 
+        <tr>
+            <td>Nome</td>
+            <td>Sobrenome</td>
+            <td>Idade</td>
+            <td>Nascimento</td>
+            <td>E-mail</td>
+            <td>Apelido</td>
+            <td>Observação</td>
+            <td>Edição</td>
+
+        </tr>
+        {% for pessoa in pessoas %}
+            <tr>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.sobrenome }}</td>
+                <td>{{ pessoa.idade }}</td>
+                <td>{{ pessoa.nascimento }}</td>
+                <td>{{ pessoa.email }}</td>
+                <td>{{ pessoa.apelido }}</td>
+                <td>{{ pessoa.obs }}</td>
+                <td>
+                    <a href='/cadastro/?id={{ pessoa.id }}'>
+                        <button type='button'>Alterar</button>
+                    </a>
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
